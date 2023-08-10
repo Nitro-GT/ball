@@ -20,7 +20,9 @@ root.Material = 256
 root.face:Destroy()
 root.Transparency = 1
 Sphere.Massless = true
+
 game.Players:Chat(".sphereo")
+
 for i,v in pairs(game.Players:GetChildren()) do
 v.Chatted:Connect(function(msg)
 if msg == ".sphereo" then
@@ -40,7 +42,17 @@ roota.Material = 256
 roota.face:Destroy()
 roota.Transparency = 1
 Sphereo.Massless = true
+ pcall(function()
+ for i,v in pairs(ca:GetDescendants()) do
+if v:IsA("BasePart") and v.Name ~= "HumanoidRootPart" and v.Name ~= "SpherePart" then
+v.Massless = true
+v.CanCollide = false
+v.Transparency = 1
+end
+end
 end)
+end)
+
  local connect = game:GetService("RunService").Heartbeat:Connect(function(set)
  c.Humanoid.PlatformStand = true
  pcall(function()
