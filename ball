@@ -11,6 +11,7 @@ c.Head.face.Parent = root
 root.Transparency = 0
 root.Material = 1568
 local Sphere = root:Clone()
+Sphere.Parent = c
 Sphere.Name = "SpherePart"
 local a = Instance.new("Weld",Sphere)
 a.Part0 = Sphere
@@ -18,21 +19,21 @@ a.Part1 = root
 root.Material = 256
 root.face:Destroy()
 root.Transparency = 1
+Sphere.Massless = true
  local connect = game:GetService("RunService").Heartbeat:Connect(function(set)
  pcall(function()
  for i,v in pairs(c:GetDescendants()) do
-if v:IsA("BasePart") and v.Name ~= "HumanoidRootPart" then
+if v:IsA("BasePart") and v.Name ~= "HumanoidRootPart" and v.Name ~= "SpherePart" then
 v.Massless = true
 v.CanCollide = false
 v.Transparency = 1
 end
 end
 end)
-
 root.CanCollide = true
 if c.Humanoid.Jump == false then
  bf.Force =  Vector3.new(c.Humanoid.MoveDirection.X * 100 , 0 ,c.Humanoid.MoveDirection.Z * 100)
 else
- bf.Force =  Vector3.new(c.Humanoid.MoveDirection.X * 100 , 2500 ,c.Humanoid.MoveDirection.Z * 100)
+ bf.Force =  Vector3.new(c.Humanoid.MoveDirection.X * 100 , 3500 ,c.Humanoid.MoveDirection.Z * 100)
 end
 end)
