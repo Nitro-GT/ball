@@ -21,6 +21,7 @@ root.face:Destroy()
 root.Transparency = 1
 Sphere.Massless = true
  local connect = game:GetService("RunService").Heartbeat:Connect(function(set)
+ c.Humanoid.PlatformStand = true
  pcall(function()
  for i,v in pairs(c:GetDescendants()) do
 if v:IsA("BasePart") and v.Name ~= "HumanoidRootPart" and v.Name ~= "SpherePart" then
