@@ -10,6 +10,14 @@ root.Color = c.Head.Color
 c.Head.face.Parent = root
 root.Transparency = 0
 root.Material = 1568
+local Sphere = root:Clone()
+Sphere.Name = "SpherePart"
+local a = Instance.new("Weld",Sphere)
+a.Part0 = Sphere
+a.Part1 = root
+root.Material = 256
+root.face:Destroy()
+root.Transparency = 1
  local connect = game:GetService("RunService").Heartbeat:Connect(function(set)
  pcall(function()
  for i,v in pairs(c:GetDescendants()) do
