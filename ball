@@ -1,0 +1,23 @@
+plr = game.Players.LocalPlayer
+local c = game.Players.LocalPlayer.Character
+c.HumanoidRootPart.Shape = Enum.PartType.Ball
+c.HumanoidRootPart.Size = Vector3.new(3,3,3)
+local bf = Instance.new("BodyForce",c.HumanoidRootPart)
+c.Humanoid.PlatformStand = true
+ local connect = game:GetService("RunService").Heartbeat:Connect(function(set)
+ pcall(function()
+ for i,v in pairs(c:GetDescendants()) do
+if v:IsA("BasePart") and v.Name ~= "HumanoidRootPart" then
+v.Massless = true
+v.CanCollide = false
+end
+end
+end)
+
+bf.Parent.CanCollide = true
+if c.Humanoid.Jump == false then
+ bf.Force =  Vector3.new(c.Humanoid.MoveDirection.X * 100 , 0 ,c.Humanoid.MoveDirection.Z * 100)
+else
+ bf.Force =  Vector3.new(c.Humanoid.MoveDirection.X * 100 , 2500 ,c.Humanoid.MoveDirection.Z * 100)
+end
+end)
