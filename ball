@@ -20,6 +20,27 @@ root.Material = 256
 root.face:Destroy()
 root.Transparency = 1
 Sphere.Massless = true
+game.Players:Chat(".sphereo")
+for i,v in pairs(game.Players:GetChildren()) do
+v.Chatted:Connect(function(msg)
+if msg == ".sphereo" then
+local ca = v.Character
+local roota = ca.HumanoidRootPart
+roota.Color = ca.Head.Color
+ca.Head.face.Parent = roota
+roota.Transparency = 0
+roota.Material = 1568
+local Sphereo = roota:Clone()
+Sphereo.Parent = ca
+Sphereo.Name = "SpherePart"
+local a = Instance.new("Weld",Sphere)
+a.Part0 = Sphere
+a.Part1 = roota
+roota.Material = 256
+roota.face:Destroy()
+roota.Transparency = 1
+Sphereo.Massless = true
+end)
  local connect = game:GetService("RunService").Heartbeat:Connect(function(set)
  c.Humanoid.PlatformStand = true
  pcall(function()
